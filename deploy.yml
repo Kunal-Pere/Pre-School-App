@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myschool-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myschool
+  template:
+    metadata:
+      labels:
+        app: myschool
+    spec:
+      containers:
+        - name: myschool-container
+          image: kunal1010/myschool
+          ports:
+            - containerPort: 82
